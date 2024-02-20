@@ -1,7 +1,7 @@
-package com.example.bankapplication.service;
+package com.VeraRchik.bankapplication.service;
 
-import com.example.bankapplication.entity.RateBA;
-import com.example.bankapplication.repository.RateRepository;
+import com.VeraRchik.bankapplication.entity.RateBA;
+import com.VeraRchik.bankapplication.repository.RateRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -10,7 +10,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;

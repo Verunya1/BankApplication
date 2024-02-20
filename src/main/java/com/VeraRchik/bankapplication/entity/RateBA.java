@@ -1,4 +1,4 @@
-package com.example.bankapplication.entity;
+package com.VeraRchik.bankapplication.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

@@ -1,7 +1,7 @@
-package com.example.bankapplication.contoller;
+package com.VeraRchik.bankapplication.contoller;
 
-import com.example.bankapplication.entity.RateBA;
-import com.example.bankapplication.service.RateBAService;
+import com.VeraRchik.bankapplication.entity.RateBA;
+import com.VeraRchik.bankapplication.service.RateBAService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

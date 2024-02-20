@@ -1,7 +1,7 @@
-package com.example.bankapplication.service;
+package com.VeraRchik.bankapplication.service;
 
-import com.example.bankapplication.entity.RateBA;
-import com.example.bankapplication.repository.RateRepository;
+import com.VeraRchik.bankapplication.entity.RateBA;
+import com.VeraRchik.bankapplication.repository.RateRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
