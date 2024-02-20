@@ -1,1 +1,19 @@
-
+server:
+  port: 8080
+logging:
+  config: src/main/resources/logback-logstash.xml
+  level:
+    org.zalando.logbook: TRACE
+spring:
+  config:
+    name: vBank
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bank_application?prepareThreshold=0
+    username: postgres
+    password: password
+    driverClassName: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      #      dialect: org.hibernate.dialect.PostgreSQLDialect
+      database-platform: org.hibernate.dialect.PostgreSQLDialect

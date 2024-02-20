@@ -1,4 +1,4 @@
-package com.example.bankapplication.dto;
+package com.example.bankapplication.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -17,10 +17,10 @@ public class RateBA {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @NotNull
     private String nameRate;
 
     private String description;
 
-    private 
+    private Double percentService;
+
 }

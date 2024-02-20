@@ -1,12 +1,12 @@
 version: '3.8'
 services:
   db:
-    container_name: pg_container_edu_platform
+    container_name: pg_container_bank_application
     image: postgres
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: education_platform
+      POSTGRES_DB: bank_application
     ports:
       - "5432:5432"
