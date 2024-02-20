@@ -23,4 +23,8 @@ public class RateBA {
 
     private Double percentService;
 
+    public RateBA(Long id, Double percent) {
+        this.id = id;
+        this.percentService = percent;
+    }
 }
