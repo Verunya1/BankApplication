@@ -1,0 +1,26 @@
+package com.example.bankapplication.dto;
+
+import jakarta.persistence.*;
+import lombok.*;
+import org.antlr.v4.runtime.misc.NotNull;
+
+
+@Entity
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name="broker_account_rate")
+public class RateBA {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+//    @NotNull
+    private String nameRate;
+
+    private String description;
+
+    private 
+}
