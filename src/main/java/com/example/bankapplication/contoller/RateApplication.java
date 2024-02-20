@@ -3,12 +3,14 @@ package com.example.bankapplication.contoller;
 import com.example.bankapplication.entity.RateBA;
 import com.example.bankapplication.service.RateBAService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/vBank")
@@ -25,7 +27,7 @@ public class RateApplication {
 
     @GetMapping("/getRate")
     public ResponseEntity<RateBA> getRateBA(@RequestParam("id") Long id) {
-        System.out.println(rateBAService.getRateBA(id));
+        log.info("Сущность с id={},{}",id, rateBAService.getRateBA(id));
         return ResponseEntity.ok(rateBAService.getRateBA(id));
     }
 
@@ -37,7 +39,7 @@ public class RateApplication {
 
     @GetMapping("/getRateAll")
     public ResponseEntity<List<RateBA>> getRateBAAll() {
-        System.out.println(rateBAService.getAllRateBA());
+        log.info("Получение всех сущностей {}", rateBAService.getAllRateBA());
         return ResponseEntity.ok(rateBAService.getAllRateBA());
     }
 
@@ -50,7 +52,7 @@ public class RateApplication {
 
     @PostMapping("/createRate")
     public ResponseEntity<Void> createRateBA(@RequestBody RateBA rateBA) {
-        System.out.println("create");
+        log.info("Создана сущность {}", rateBA );
         rateBAService.createRateBA(rateBA);
         return ResponseEntity.noContent().build();
     }
@@ -65,7 +67,8 @@ public class RateApplication {
 
     @PatchMapping("/updateRate/{id}")
     public ResponseEntity<RateBA> updateRateBA(@PathVariable("id") Long id, @RequestParam Double percent) {
-        System.out.println(rateBAService.updateRateBA(id, percent));
+        log.info("Изменен процент обслуживания с {} на {}", rateBAService.getRateBA(id).getPercentService(), percent);
+        log.info("Тариф = {}", rateBAService.getRateBA(id).getPercentService());
         return ResponseEntity.ok(rateBAService.updateRateBA(id, percent));
     }
 
@@ -77,8 +80,8 @@ public class RateApplication {
      */
     @DeleteMapping("/deleteRate/{id}")
     public ResponseEntity<Void> deleteRateBA(@PathVariable("id") Long id) {
-        System.out.println("delete");
         rateBAService.deleteRateBA(id);
+        log.info("Удален тариф {}", rateBAService.getRateBA(id));
         return ResponseEntity.noContent().build();
     }
 
