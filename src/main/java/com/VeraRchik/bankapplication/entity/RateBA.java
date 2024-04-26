@@ -5,13 +5,14 @@ import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
 
-@Entity
-@Getter
-@Setter
-@ToString
+//@Entity
+//@Getter
+//@Setter
+//@ToString
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="broker_account_rate")
+@Table(name = "broker_account_rate")
 public class RateBA {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
