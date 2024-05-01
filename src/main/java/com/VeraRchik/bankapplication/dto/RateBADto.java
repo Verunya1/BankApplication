@@ -8,7 +8,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RateBADto {
+
     private String nameRate;
+
     private String description;
+
     private Double percentService;
+    private String namePaymentSystem;
+
 }

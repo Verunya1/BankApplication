@@ -5,11 +5,10 @@ import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
 
-//@Entity
-//@Getter
-//@Setter
+@Entity
+@Getter
+@Setter
 //@ToString
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "broker_account_rate")
@@ -23,6 +22,8 @@ public class RateBA {
     private String description;
 
     private Double percentService;
+
+    private String namePaymentSystem;
 
     public RateBA(Long id, Double percent) {
         this.id = id;

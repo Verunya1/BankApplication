@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/vBank")
-public class RateApplication {
+public class RateController {
 
     private final RateBAService rateBAService;
 
@@ -100,6 +100,5 @@ public class RateApplication {
         log.info("Удален тариф {}", rateBAService.getRateBA(id));
         return ResponseEntity.noContent().build();
     }
-
 
 }

@@ -6,18 +6,22 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-@Data
+@Entity
+@Getter
+@Setter
+//@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="product")
-public class Product {
+public class Product {  //счет
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long numberScore;
 
     private String name; //платежная система
 
-    private BigDecimal sum;
+//    private BigDecimal balance;
+    private Double balance;
 
-    private String numberScore;
+    /*private String numberScore;*/ // номер счета
 }
