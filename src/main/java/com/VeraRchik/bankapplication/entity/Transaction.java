@@ -23,12 +23,14 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String nameTransaction;
+
     private LocalDate dateTransaction;
 
     @Enumerated(EnumType.STRING)
     private TypeTransaction typeTransaction;
 
-//    private BigDecimal sum;
+    //    private BigDecimal sum;
     private Double sum;
 
     @ManyToOne(fetch = FetchType.LAZY)

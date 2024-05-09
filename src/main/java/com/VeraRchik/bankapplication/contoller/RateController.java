@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/vBank")
+@CrossOrigin(origins = "http://localhost:3000")
 public class RateController {
 
     private final RateBAService rateBAService;
@@ -32,8 +33,8 @@ public class RateController {
      * @return  Метод возвращает объект типа ResponseEntity, который содержит сущность RateBADto, если она была найдена по заданному ID, или возвращает статус "NOT FOUND" (404), если сущность с указанным ID не была найдена.
      */
 
-    @GetMapping("/getRate")
-    public ResponseEntity<RateBADto> getRateBA(@RequestParam("id") Long id) {
+    @GetMapping("/getRate/{id}")
+    public ResponseEntity<RateBADto> getRateBA(@PathVariable("id") Long id) {
         log.info("Сущность с id={},{}",id, rateBAService.getRateBA(id));
         RateBA rateBA = rateBAService.getRateBA(id);
         RateBADto rateBADto = rateBAMapper.rateToDto(rateBA);

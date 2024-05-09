@@ -18,4 +18,9 @@ public class TransactionDto {
     private TypeTransaction typeTransaction;
 
     private Double sum;
+
+    private String nameTransaction;
+
+    private Long numberScore;
+
 }

@@ -17,6 +17,8 @@ public class TransactionMapper implements TransactionMapperInterface{
         transactionDto.setSum(transaction.getSum());
         transactionDto.setDateTransaction(transaction.getDateTransaction());
         transactionDto.setTypeTransaction(transaction.getTypeTransaction());
+        transactionDto.setNameTransaction(transaction.getNameTransaction());
+        transactionDto.setNumberScore(transaction.getProduct().getNumberScore());
         return transactionDto;
     }
 }

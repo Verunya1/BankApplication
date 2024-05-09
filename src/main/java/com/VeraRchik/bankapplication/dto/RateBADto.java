@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RateBADto {
 
+    private Long rateId;
     private String nameRate;
 
     private String description;

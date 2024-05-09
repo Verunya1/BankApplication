@@ -12,6 +12,7 @@ public class RateBAMapper implements RateBAMapperInterface  {
         }
 
         RateBADto rateBADto = new RateBADto();
+        rateBADto.setRateId(rateBA.getId());
         rateBADto.setNameRate(rateBA.getNameRate());
         rateBADto.setDescription(rateBA.getDescription());
         rateBADto.setPercentService(rateBA.getPercentService());

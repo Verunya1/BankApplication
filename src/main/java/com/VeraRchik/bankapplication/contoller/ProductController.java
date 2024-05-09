@@ -17,6 +17,7 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/vBank")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ProductController {
 
     private final ProductFacade productFacade;

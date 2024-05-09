@@ -24,6 +24,7 @@
 //    private String email;
 //
 //    private String password;
+//    private String phone;
 //
 ////    @OneToMany(fetch = FetchType.LAZY)
 ////    @JoinColumn(name = "id")
