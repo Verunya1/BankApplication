@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -39,6 +40,7 @@ public class ProductService {
         Product product = new Product();
         product.setName(rateRepository.findById(rateId).orElseThrow().getNamePaymentSystem());
         product.setBalance(0.0);
+        product.setTransactions(new ArrayList<>());
         productRepository.save(product);
         log.info("Создана сущность {}", product);
 
