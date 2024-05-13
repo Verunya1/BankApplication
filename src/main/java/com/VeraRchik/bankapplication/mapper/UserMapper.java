@@ -22,6 +22,7 @@ public class UserMapper {
         }
         userDto.firstName( user.getFirstName() );
         userDto.lastName( user.getLastName() );
+        userDto.phone( user.getPhone() );
         userDto.login( user.getLogin() );
         userDto.role(user.getRole());
 
