@@ -2,8 +2,11 @@ package com.VeraRchik.bankapplication.contoller;
 
 import com.VeraRchik.bankapplication.dto.ProductDto;
 import com.VeraRchik.bankapplication.dto.RateRequest;
+import com.VeraRchik.bankapplication.dto.TransactionDto;
 import com.VeraRchik.bankapplication.entity.Product;
 import com.VeraRchik.bankapplication.service.facade.ProductFacade;
+import io.micrometer.common.lang.Nullable;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -24,8 +27,8 @@ public class ProductController {
 
     private final ProductFacade productFacade;
 
-    @GetMapping("/getProduct")
-    public ResponseEntity<ProductDto> getProduct(@RequestParam("id") Long id) {
+    @GetMapping("/getProduct/{id}")
+    public ResponseEntity<ProductDto> getProduct(@PathVariable("id") Long id) {
         ProductDto productDto = productFacade.getProduct(id);
         return ResponseEntity.ok(productDto);
     }
@@ -36,9 +39,14 @@ public class ProductController {
         return ResponseEntity.ok(productDtoList);
     }
 
+    @GetMapping("/getProductsUsers/{id}")
+    public ResponseEntity<List<ProductDto>> getProductsByUser(@PathVariable("id") @NonNull Long id) {
+        List<ProductDto> productDtoList = productFacade.getProductByUserId(id);
+        return ResponseEntity.ok(productDtoList);
+    }
     @PostMapping("/createProduct")
     public ResponseEntity<Void> createProduct(@RequestBody RateRequest rateRequest) {
-        productFacade.createProduct(rateRequest.getRateId());
+        productFacade.createProduct(rateRequest.getRateId(), rateRequest.getUserId());
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 // @PostMapping("/createProduct")

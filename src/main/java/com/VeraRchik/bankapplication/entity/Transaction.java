@@ -7,6 +7,7 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -19,21 +20,24 @@ import java.util.List;
 //@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Transaction {
     @Id
-//    @EqualsAndHashCode.Exclude
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nameTransaction;
 
-    private LocalDate dateTransaction;
+    private LocalDateTime dateTransaction;
 
     @Enumerated(EnumType.STRING)
     private TypeTransaction typeTransaction;
 
-    //    private BigDecimal sum;
     private Double sum;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "transaction_id")
     private Product product;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
 }

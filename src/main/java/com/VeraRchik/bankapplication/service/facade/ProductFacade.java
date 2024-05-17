@@ -31,8 +31,16 @@ public class ProductFacade {
                 .map(productMapper::mapToProductDtoResponse)
                 .toList();
     }
-    public void createProduct(Long rateId){
-        productService.createProduct(rateId);
+
+    public List<ProductDto> getProductByUserId(Long userID) {
+        log.info("Получение всех сущностей {}", productService.getProductByUserId(userID));
+        List<Product> productList = productService.getProductByUserId(userID);
+        return productList.stream()
+                .map(productMapper::mapToProductDtoResponse)
+                .toList();
+    }
+    public void createProduct(Long rateId, Long userId){
+        productService.createProduct(rateId, userId);
     }
 
     public void deleteProduct(Long id){

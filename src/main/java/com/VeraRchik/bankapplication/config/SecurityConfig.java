@@ -37,6 +37,8 @@ public class SecurityConfig {
                 .sessionManagement(customizer -> customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers(HttpMethod.POST, "vBank/auth/login", "vBank/auth/register").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/vBank/getRateAll").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/vBank/getRate/{id}").permitAll()
                         .anyRequest().authenticated())
         ;
         return http.build();

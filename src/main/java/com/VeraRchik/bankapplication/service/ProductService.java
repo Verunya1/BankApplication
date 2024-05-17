@@ -3,10 +3,12 @@ package com.VeraRchik.bankapplication.service;
 import com.VeraRchik.bankapplication.entity.Product;
 import com.VeraRchik.bankapplication.entity.RateBA;
 import com.VeraRchik.bankapplication.entity.Transaction;
+import com.VeraRchik.bankapplication.entity.User;
 import com.VeraRchik.bankapplication.enums.TypeTransaction;
 import com.VeraRchik.bankapplication.repository.ProductRepository;
 import com.VeraRchik.bankapplication.repository.RateRepository;
 import com.VeraRchik.bankapplication.repository.TransactionRepository;
+import com.VeraRchik.bankapplication.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +30,9 @@ public class ProductService {
     @Autowired
     private RateRepository rateRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     public Product getProduct(Long id) {
         return productRepository.findById(id).orElseThrow();   //нужно ли ?
     }
@@ -36,11 +41,19 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public void createProduct(Long rateId) {
+    public List<Product> getProductByUserId(Long userID) {
+        return productRepository.findProductsByUserId(userID);
+    }
+
+    public void createProduct(Long rateId, Long userId ) {
         Product product = new Product();
         product.setName(rateRepository.findById(rateId).orElseThrow().getNamePaymentSystem());
         product.setBalance(0.0);
         product.setTransactions(new ArrayList<>());
+        var user = userRepository.findById(userId).orElseThrow();
+        product.setUser(user);
+        log.info("юзер=",user);
+        log.info("карта=",user.getProducts());
         productRepository.save(product);
         log.info("Создана сущность {}", product);
 

@@ -7,13 +7,14 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class TransactionDto {
 
-    private LocalDate dateTransaction;
+    private LocalDateTime dateTransaction;
 
     private TypeTransaction typeTransaction;
 

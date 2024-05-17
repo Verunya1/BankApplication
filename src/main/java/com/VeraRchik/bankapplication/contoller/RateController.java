@@ -36,7 +36,7 @@ public class RateController {
      */
 
     @GetMapping("/getRate/{id}")
-    @PreAuthorize("hasAnyAuthority('USER', 'ADMIN')")
+//    @PreAuthorize("hasAnyAuthority('USER', 'ADMIN')")
     public ResponseEntity<RateBADto> getRateBA(@PathVariable("id") Long id) {
         log.info("Сущность с id={},{}",id, rateBAService.getRateBA(id));
         RateBA rateBA = rateBAService.getRateBA(id);

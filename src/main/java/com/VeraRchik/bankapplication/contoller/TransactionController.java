@@ -1,9 +1,11 @@
 package com.VeraRchik.bankapplication.contoller;
 
 import com.VeraRchik.bankapplication.dto.TransactionDto;
+import com.VeraRchik.bankapplication.dto.TransactionRequest;
 import com.VeraRchik.bankapplication.entity.Transaction;
 import com.VeraRchik.bankapplication.service.facade.ProductFacade;
 import com.VeraRchik.bankapplication.service.facade.TransactionFacade;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -26,8 +28,8 @@ public class TransactionController {
     private final TransactionFacade transactionFacade;
     private final ProductFacade productFacade;
 
-    @GetMapping("/getTransaction")
-    public ResponseEntity<TransactionDto> getTransaction(@RequestParam("id") Long id) {
+    @GetMapping("/getTransaction/{id}")
+    public ResponseEntity<TransactionDto> getTransaction(@PathVariable("id") Long id) {
         TransactionDto transactionDto = transactionFacade.getTransaction(id);
         return ResponseEntity.ok(transactionDto);
     }
@@ -38,10 +40,26 @@ public class TransactionController {
         return ResponseEntity.ok(transactionDtoList);
     }
 
+    @GetMapping("/getTransactionsUsers/{id}")
+    public ResponseEntity<List<TransactionDto>> getTransactionsByUser(@PathVariable("id")  @NonNull Long id) {
+        List<TransactionDto> transactionDtoList = transactionFacade.getTransactionsByUserId(id);
+        return ResponseEntity.ok(transactionDtoList);
+    }
+
+//    @PostMapping("/createTransaction")
+//    public ResponseEntity<Void> createTransaction(@RequestBody TransactionRequest transactionRequest){
+//        if(productFacade.changedMoney(transactionRequest.getTransaction().getProduct().getNumberScore(),transactionRequest.getTransaction())) {
+//            transactionFacade.createTransaction(transactionRequest.getTransaction(), transactionRequest.getUserId());
+////            transactionRequest.getTransaction().getUser().getId()
+//        }
+//        return ResponseEntity.status(HttpStatus.CREATED).build();
+//    }
+
     @PostMapping("/createTransaction")
-    public ResponseEntity<Void> createTransaction(@RequestBody Transaction transaction) {
+    public ResponseEntity<Void> createTransaction(@RequestBody Transaction transaction){
         if(productFacade.changedMoney(transaction.getProduct().getNumberScore(),transaction)) {
-            transactionFacade.createTransaction(transaction);
+            transactionFacade.createTransaction(transaction, transaction.getUser().getId());
+//            transactionRequest.getTransaction().getUser().getId()
         }
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

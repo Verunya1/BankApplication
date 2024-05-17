@@ -1,5 +1,6 @@
 package com.VeraRchik.bankapplication.service;
 
+import com.VeraRchik.bankapplication.entity.Product;
 import com.VeraRchik.bankapplication.entity.Transaction;
 import com.VeraRchik.bankapplication.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,10 @@ public class TransactionService {
 
     public List<Transaction> getAllTransaction() {
         return transactionRepository.findAll(Sort.by(Sort.Direction.DESC, "dateTransaction"));
+    }
+
+    public List<Transaction> getTransactionsByUserId(Long userID) {
+        return transactionRepository.findTransactionsByUserId(userID);
     }
 
     public void createTransaction(Transaction transaction) {

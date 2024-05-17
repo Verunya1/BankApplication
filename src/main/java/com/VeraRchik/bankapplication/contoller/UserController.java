@@ -22,7 +22,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/{userId}")
-    public ResponseEntity<UserDto> getWatchlist(@PathVariable Long userId) {
+    public ResponseEntity<UserDto> getUser(@PathVariable Long userId) {
         UserDto user = userService.getUser(userId);
         return ResponseEntity.ok(user);
     }

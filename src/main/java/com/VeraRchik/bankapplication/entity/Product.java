@@ -15,20 +15,21 @@ import java.util.List;
 //@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="product")
+@Table(name = "product") //карта
 public class Product {  //счет
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long numberScore;
 
     private String name; //платежная система
-
-//    private BigDecimal balance;
     private Double balance;
-
-    /*private String numberScore;*/ // номер счета
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Transaction> transactions;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
 }
