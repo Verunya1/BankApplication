@@ -1,7 +1,6 @@
 package com.VeraRchik.bankapplication.repository;
 
 import com.VeraRchik.bankapplication.entity.Product;
-import com.VeraRchik.bankapplication.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

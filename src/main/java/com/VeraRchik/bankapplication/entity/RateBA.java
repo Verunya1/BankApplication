@@ -1,14 +1,15 @@
 package com.VeraRchik.bankapplication.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 @Entity
 @Getter
 @Setter
-//@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "broker_account_rate")

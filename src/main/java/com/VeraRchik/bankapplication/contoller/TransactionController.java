@@ -1,7 +1,6 @@
 package com.VeraRchik.bankapplication.contoller;
 
 import com.VeraRchik.bankapplication.dto.TransactionDto;
-import com.VeraRchik.bankapplication.dto.TransactionRequest;
 import com.VeraRchik.bankapplication.entity.Transaction;
 import com.VeraRchik.bankapplication.service.facade.ProductFacade;
 import com.VeraRchik.bankapplication.service.facade.TransactionFacade;
@@ -46,14 +45,6 @@ public class TransactionController {
         return ResponseEntity.ok(transactionDtoList);
     }
 
-//    @PostMapping("/createTransaction")
-//    public ResponseEntity<Void> createTransaction(@RequestBody TransactionRequest transactionRequest){
-//        if(productFacade.changedMoney(transactionRequest.getTransaction().getProduct().getNumberScore(),transactionRequest.getTransaction())) {
-//            transactionFacade.createTransaction(transactionRequest.getTransaction(), transactionRequest.getUserId());
-////            transactionRequest.getTransaction().getUser().getId()
-//        }
-//        return ResponseEntity.status(HttpStatus.CREATED).build();
-//    }
 
     @PostMapping("/createTransaction")
     public ResponseEntity<Void> createTransaction(@RequestBody Transaction transaction){

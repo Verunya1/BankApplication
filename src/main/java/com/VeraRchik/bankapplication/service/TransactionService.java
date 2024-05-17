@@ -1,6 +1,5 @@
 package com.VeraRchik.bankapplication.service;
 
-import com.VeraRchik.bankapplication.entity.Product;
 import com.VeraRchik.bankapplication.entity.Transaction;
 import com.VeraRchik.bankapplication.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +19,7 @@ public class TransactionService {
     private TransactionRepository transactionRepository;
 
     public Transaction getTransaction(Long id) {
-        return transactionRepository.findById(id).orElseThrow();   //нужно ли ?
+        return transactionRepository.findById(id).orElseThrow();
     }
 
     public List<Transaction> getAllTransaction() {
@@ -32,16 +31,6 @@ public class TransactionService {
     }
 
     public void createTransaction(Transaction transaction) {
-        transactionRepository.save(transaction);
-    }
-
-    public void createTransactionWriteDowns(Transaction transaction) {
-        transaction.setTypeTransaction(writeDowns);
-        transactionRepository.save(transaction);
-    }
-
-    public void createTransactionReplenishment(Transaction transaction) {  //хз как отработает  мб можно просто создать
-        transaction.setTypeTransaction(replenishment);
         transactionRepository.save(transaction);
     }
 }

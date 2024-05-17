@@ -2,19 +2,17 @@ package com.VeraRchik.bankapplication.entity;
 
 import com.VeraRchik.bankapplication.enums.TypeTransaction;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "transaction")
 @Getter
 @Setter
-//@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 //@EqualsAndHashCode(onlyExplicitlyIncluded = true)

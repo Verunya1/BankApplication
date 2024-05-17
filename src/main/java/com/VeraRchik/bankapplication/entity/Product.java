@@ -1,18 +1,18 @@
 package com.VeraRchik.bankapplication.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
-//@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "product") //карта

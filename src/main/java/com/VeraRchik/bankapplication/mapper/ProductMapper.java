@@ -1,7 +1,6 @@
 package com.VeraRchik.bankapplication.mapper;
 
 import com.VeraRchik.bankapplication.dto.ProductDto;
-import com.VeraRchik.bankapplication.dto.RateBADto;
 import com.VeraRchik.bankapplication.entity.Product;
 import org.springframework.stereotype.Component;
 

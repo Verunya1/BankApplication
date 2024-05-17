@@ -1,13 +1,10 @@
 package com.VeraRchik.bankapplication.service;
 
 import com.VeraRchik.bankapplication.entity.Product;
-import com.VeraRchik.bankapplication.entity.RateBA;
 import com.VeraRchik.bankapplication.entity.Transaction;
-import com.VeraRchik.bankapplication.entity.User;
 import com.VeraRchik.bankapplication.enums.TypeTransaction;
 import com.VeraRchik.bankapplication.repository.ProductRepository;
 import com.VeraRchik.bankapplication.repository.RateRepository;
-import com.VeraRchik.bankapplication.repository.TransactionRepository;
 import com.VeraRchik.bankapplication.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -34,7 +31,7 @@ public class ProductService {
     private UserRepository userRepository;
 
     public Product getProduct(Long id) {
-        return productRepository.findById(id).orElseThrow();   //нужно ли ?
+        return productRepository.findById(id).orElseThrow();
     }
 
     public List<Product> getAllProduct() {
@@ -52,8 +49,8 @@ public class ProductService {
         product.setTransactions(new ArrayList<>());
         var user = userRepository.findById(userId).orElseThrow();
         product.setUser(user);
-        log.info("юзер=",user);
-        log.info("карта=",user.getProducts());
+        log.info("Пользователь:{}",user);
+        log.info("карта:{}",user.getProducts());
         productRepository.save(product);
         log.info("Создана сущность {}", product);
 
@@ -80,6 +77,4 @@ public class ProductService {
         log.info("Баланс счета изменился и составляет {}", getProduct(productId).getBalance());
         return true;
     }
-
-    // TODO сделать поиск по айди, сделать транзакции + на счет - на счет, если выводить последние транзакции, то надо создать бд транзакций и отсортировать
 }

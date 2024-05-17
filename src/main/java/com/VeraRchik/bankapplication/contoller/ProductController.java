@@ -2,10 +2,7 @@ package com.VeraRchik.bankapplication.contoller;
 
 import com.VeraRchik.bankapplication.dto.ProductDto;
 import com.VeraRchik.bankapplication.dto.RateRequest;
-import com.VeraRchik.bankapplication.dto.TransactionDto;
-import com.VeraRchik.bankapplication.entity.Product;
 import com.VeraRchik.bankapplication.service.facade.ProductFacade;
-import io.micrometer.common.lang.Nullable;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -49,12 +46,6 @@ public class ProductController {
         productFacade.createProduct(rateRequest.getRateId(), rateRequest.getUserId());
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-// @PostMapping("/createProduct")
-//    public ResponseEntity<Void> createProduct(@RequestBody Product product) {
-//        productFacade.createProduct(product);
-//        return ResponseEntity.status(HttpStatus.CREATED).build();
-//    }
-
 
     @DeleteMapping("/deleteProduct/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable("id") Long id) {

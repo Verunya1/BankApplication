@@ -3,17 +3,13 @@ package com.VeraRchik.bankapplication.contoller;
 import com.VeraRchik.bankapplication.config.UserAuthenticationProvider;
 import com.VeraRchik.bankapplication.dto.CredentialsDto;
 import com.VeraRchik.bankapplication.dto.SignUpDto;
-//import com.VeraRchik.bankapplication.dto.UserDto;
 import com.VeraRchik.bankapplication.dto.UserDto;
 import com.VeraRchik.bankapplication.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.net.URI;
 
 import java.net.URI;
 
