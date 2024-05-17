@@ -8,10 +8,10 @@ import org.antlr.v4.runtime.misc.NotNull;
 @Entity
 @Getter
 @Setter
-@ToString
+//@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="broker_account_rate")
+@Table(name = "broker_account_rate")
 public class RateBA {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +22,8 @@ public class RateBA {
     private String description;
 
     private Double percentService;
+
+    private String namePaymentSystem;
 
     public RateBA(Long id, Double percent) {
         this.id = id;

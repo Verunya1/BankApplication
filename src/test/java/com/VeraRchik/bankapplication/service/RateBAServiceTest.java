@@ -10,6 +10,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -29,7 +30,8 @@ class RateBAServiceTest {
         expectedRateBA.setId(1L);
         expectedRateBA.setPercentService(0.05);
 
-        when(rateRepository.getRateBAById(1L)).thenReturn(expectedRateBA);
+        when(rateRepository.findById(1L)).thenReturn(Optional.of(expectedRateBA));
+//        when(rateRepository.getRateBAById(1L)).thenReturn(expectedRateBA);
 
         RateBA result = rateBAService.getRateBA(1L);
 

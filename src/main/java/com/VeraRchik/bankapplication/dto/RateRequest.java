@@ -3,18 +3,14 @@ package com.VeraRchik.bankapplication.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class RateBADto {
-
+@AllArgsConstructor
+public class RateRequest {
+    @NonNull
     private Long rateId;
-    private String nameRate;
-
-    private String description;
-
-    private Double percentService;
-    private String namePaymentSystem;
-
+    @NonNull
+    private Long userId;
 }

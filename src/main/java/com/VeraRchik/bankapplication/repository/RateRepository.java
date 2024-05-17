@@ -5,7 +5,6 @@ import com.VeraRchik.bankapplication.entity.RateBA;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface RateRepository extends JpaRepository<RateBA,Long> {
-    RateBA getRateBAById(Long rateId);
+public interface RateRepository extends JpaRepository<RateBA, Long> {
 
 }

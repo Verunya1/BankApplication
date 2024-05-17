@@ -2,6 +2,7 @@ package com.VeraRchik.bankapplication.service;
 
 import com.VeraRchik.bankapplication.entity.RateBA;
 import com.VeraRchik.bankapplication.repository.RateRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,8 @@ public class RateBAService {
      * @return Сущность RateBA, если найдена, или выбрасывает исключение, если сущность не найдена
      */
     public RateBA getRateBA(Long id){
-        return rateRepository.getRateBAById(id);
+//        return rateRepository.getRateBAById(id);
+        return rateRepository.findById(id).orElseThrow();
     }
     /**
      * Получает список всех сущностей RateBA
@@ -36,6 +38,7 @@ public class RateBAService {
      *
      * @param rateBA Новая сущность RateBA для создания
      */
+    @Transactional
     public void createRateBA(RateBA rateBA){
         rateRepository.save(rateBA);
     }
@@ -51,7 +54,8 @@ public class RateBAService {
         RateBA rateBA = rateRepository.findById(id).orElseThrow();
         rateBA.setPercentService(percent);
         rateRepository.save(rateBA);
-        return rateRepository.getRateBAById(id);
+        return rateBA;
+//        return rateRepository.getRateBAById();
     }
     /**
      * Удаляет сущность RateBA по её id

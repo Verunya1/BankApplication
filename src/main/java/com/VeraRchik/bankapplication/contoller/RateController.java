@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,9 @@ import java.util.stream.Collectors;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/vBank")
-public class RateApplication {
+@CrossOrigin(origins = "http://localhost:3000")
+ //todo создавать удалять обновлять и редактировать мог только админ, а предложения могут видеть все
+public class RateController {
 
     private final RateBAService rateBAService;
 
@@ -32,8 +35,9 @@ public class RateApplication {
      * @return  Метод возвращает объект типа ResponseEntity, который содержит сущность RateBADto, если она была найдена по заданному ID, или возвращает статус "NOT FOUND" (404), если сущность с указанным ID не была найдена.
      */
 
-    @GetMapping("/getRate")
-    public ResponseEntity<RateBADto> getRateBA(@RequestParam("id") Long id) {
+    @GetMapping("/getRate/{id}")
+//    @PreAuthorize("hasAnyAuthority('USER', 'ADMIN')")
+    public ResponseEntity<RateBADto> getRateBA(@PathVariable("id") Long id) {
         log.info("Сущность с id={},{}",id, rateBAService.getRateBA(id));
         RateBA rateBA = rateBAService.getRateBA(id);
         RateBADto rateBADto = rateBAMapper.rateToDto(rateBA);
@@ -48,6 +52,7 @@ public class RateApplication {
      */
 
     @GetMapping("/getRateAll")
+//    @PreAuthorize("hasAnyAuthority('USER', 'ADMIN')")
     public ResponseEntity<List<RateBADto>> getRateBAAll() {
         log.info("Получение всех сущностей {}", rateBAService.getAllRateBA());
         List<RateBA> rateBAList = rateBAService.getAllRateBA();
@@ -65,6 +70,7 @@ public class RateApplication {
      */
 
     @PostMapping("/createRate")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Void> createRateBA(@RequestBody RateBA rateBA) {
         rateBAService.createRateBA(rateBA);
         log.info("Создана сущность {}", rateBA );
@@ -80,6 +86,7 @@ public class RateApplication {
      */
 
     @PatchMapping("/updateRate/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<RateBADto> updateRateBA(@PathVariable("id") Long id, @RequestParam Double percent) {
         log.info("Изменен процент обслуживания с {} на {}", rateBAService.getRateBA(id).getPercentService(), percent);
         log.info("Тариф = {}", rateBAService.getRateBA(id).getPercentService());
@@ -95,11 +102,12 @@ public class RateApplication {
      * @return ResponseEntity со статусом NO CONTENT после успешного удаления
      */
     @DeleteMapping("/deleteRate/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Void> deleteRateBA(@PathVariable("id") Long id) {
-        rateBAService.deleteRateBA(id);
         log.info("Удален тариф {}", rateBAService.getRateBA(id));
+        log.info("Удален тариф {}", id);
+        rateBAService.deleteRateBA(id);
         return ResponseEntity.noContent().build();
     }
-
 
 }
