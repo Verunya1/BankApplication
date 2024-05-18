@@ -19,8 +19,9 @@ import java.util.stream.Collectors;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/vBank")
-@CrossOrigin(origins = "http://localhost:3000")
- //todo создавать удалять обновлять и редактировать мог только админ, а предложения могут видеть все
+//@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://147.45.150.25:3000")
+//todo создавать удалять обновлять и редактировать мог только админ, а предложения могут видеть все
 public class RateController {
 
     private final RateBAService rateBAService;

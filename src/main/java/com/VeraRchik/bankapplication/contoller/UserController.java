@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/vBank/personalAccount")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://147.45.150.25:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
 @PreAuthorize("hasAnyAuthority('USER', 'ADMIN')")
 public class UserController {
 

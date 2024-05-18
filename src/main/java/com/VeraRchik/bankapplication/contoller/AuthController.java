@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 
 @Slf4j
-@CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "*")
+@CrossOrigin(origins = "http://147.45.150.25:3000", allowedHeaders = "*")
+//@CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "*")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/vBank/auth")

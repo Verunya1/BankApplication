@@ -19,7 +19,8 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/vBank")
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://147.45.150.25:3000")
 @PreAuthorize("hasAnyAuthority('USER', 'ADMIN')") //todo сделать в принципе авторизованный пользователь мог видеть транзакции и создавать их
 public class TransactionController {
 
