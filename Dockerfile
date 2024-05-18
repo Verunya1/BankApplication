@@ -6,7 +6,9 @@ WORKDIR /app
 
 # Копирование исполняемого файла jar в рабочую директорию
 COPY ./*.jar app.jar
-COPY ./src/main/resources/logback-logstash.xml app/src/main/resources/logback-logstash.xml
+
+# Копирование всех файлов из директории src/main/resources проекта внутрь контейнера
+COPY src/main/resources/ /app/src/main/resources/
 
 # Команда для запуска приложения
 CMD ["java", "-jar", "app.jar"]
