@@ -5,7 +5,8 @@ FROM openjdk:17
 WORKDIR /app
 
 # Копирование исполняемого файла jar в рабочую директорию
-COPY ./*.jar app.jar
+COPY ./BankApplication-0.0.1-SNAPSHOT.jar BankApplication-0.0.1-SNAPSHOT.jar
 
+COPY ./src/main/resources/logback-logstash.xml /app/src/main/resources/logback-logstash.xml
 # Команда для запуска приложения
-CMD ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "BankApplication-0.0.1-SNAPSHOT.jar"]
