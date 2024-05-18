@@ -5,7 +5,7 @@ FROM openjdk:17
 WORKDIR /app
 
 # Копирование исполняемого файла jar в рабочую директорию
-COPY target/*.jar app.jar
+COPY ./*.jar app.jar
 
 # Команда для запуска приложения
 CMD ["java", "-jar", "app.jar"]
