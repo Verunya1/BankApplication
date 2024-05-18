@@ -8,7 +8,7 @@ spring:
   config:
     name: vBank
   datasource:
-    url: jdbc:postgresql://localhost:5432/bank_application?prepareThreshold=0
+    url: jdbc:postgresql://db:5432/bank_application?prepareThreshold=0
     username: postgres
     password: password
     driverClassName: org.postgresql.Driver
