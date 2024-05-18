@@ -8,7 +8,7 @@ WORKDIR /app
 COPY ./*.jar app.jar
 
 # Копирование всех файлов из директории src/main/resources проекта внутрь контейнера
-COPY src/main/resources/ /app/src/main/resources/
+COPY ./src/main/resources/ /app/src/main/resources/
 
 # Команда для запуска приложения
 CMD ["java", "-jar", "app.jar"]
