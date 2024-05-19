@@ -14,7 +14,8 @@ public class WebConfig
 
         registry.addMapping("/**")
                 .allowedHeaders()
-                .allowedOrigins("http://localhost:3000") // Разрешить доступ с этого домена
+//                .allowedOrigins("http://localhost:3000") // Разрешить доступ с этого домена
+                .allowedOrigins("http://147.45.150.25:3000") // Разрешить доступ с этого домена
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("*")
                 .allowCredentials(true);
